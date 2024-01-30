@@ -46,7 +46,7 @@ exports.createMassage = asyncHandaler(async (req, res, next) => {
     subject: req.body.subject,
   });
   if (checkMassage) {
-    const err = new ErrorHandling("Massage with that Subject Is Found!", 409);
+    const err = new ErrorHandling("Subject with that Subject Is Found!", 409);
     return next(err);
   }
 

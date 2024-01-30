@@ -18,12 +18,15 @@ exports.login = asyncHandaler(async (req, res, next) => {
     {
       nameEn: user.nameEn,
       nameAr: user.nameAr,
+      role: user.Role,
       userId: user._id,
     },
     process.env.SECRET_KEY_JWT,
     { expiresIn: "1h" }
   );
-  res.status(200).json({ data: "success login", token });
+  res
+    .status(200)
+    .json({ status: "success", data: { message: "Login Success", token } });
 });
 
 exports.signUp = asyncHandaler(async (req, res, next) => {
@@ -37,7 +40,7 @@ exports.signUp = asyncHandaler(async (req, res, next) => {
   res.status(201).json({
     status: "success",
     data: {
-      newUser,
+      message: "Sign up Success",
     },
   });
 });

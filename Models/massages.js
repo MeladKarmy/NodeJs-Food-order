@@ -10,7 +10,6 @@ const massageSchema = new mongoose.Schema({
     type: String,
     trim: true,
     require: [true, "Email Is Require"],
-    unique: [true, "Email Is already used please, try another Email ..."],
     lowercase: true,
   },
   subject: { type: String, required: [true, "Subject Is Require"] },
