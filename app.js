@@ -10,6 +10,7 @@ const Pizza = require("./Routes/pizza");
 const Category = require("./Routes/category");
 const Massage = require("./Routes/massage");
 const Users = require("./Routes/users");
+const Orders = require("./Routes/order");
 const Auth = require("./Routes/Auth");
 
 const app = express();
@@ -50,6 +51,7 @@ app.use("/api/v1/auth", Auth);
 app.use("/api/v1/pizza", Pizza);
 app.use("/api/v1/category", Category);
 app.use("/api/v1/massage", Massage);
+app.use("/api/v1/order", Orders);
 app.use("/api/v1/users", Users);
 
 app.all("*", (req, res, next) => {

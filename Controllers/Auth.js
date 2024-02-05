@@ -47,10 +47,10 @@ exports.signUp = asyncHandaler(async (req, res, next) => {
 exports.checkAuthAdmin = asyncHandaler(async (req, res, next) => {
   let token;
   if (
-    req.headers.Authorization &&
-    req.headers.Authorization.startsWith("Bearer")
+    req.headers.authorization &&
+    req.headers.authorization.startsWith("Bearer")
   ) {
-    token = req.headers.Authorization.split(" ")[1];
+    token = req.headers.authorization.split(" ")[1];
   }
   if (!token) {
     const err = new ErrorHandling("You are not Authorization", 404);
@@ -73,6 +73,7 @@ exports.checkAuthAdmin = asyncHandaler(async (req, res, next) => {
 
 exports.checkAuthUser = asyncHandaler(async (req, res, next) => {
   let token;
+  console.log(req.headers);
   if (
     req.headers.authorization &&
     req.headers.authorization.startsWith("Bearer")
