@@ -41,44 +41,36 @@ exports.getOrder = asyncHandaler(async (req, res, next) => {
 });
 
 exports.createOrder = asyncHandaler(async (req, res, next) => {
-  try {
-    const order = req.body.order;
-    const { user, shippingDitails, orderItems, paymentMethod, totalPrice } =
-      order;
+  const order = req.body.order;
+  const { user, shippingDitails, orderItems, paymentMethod, totalPrice } =
+    order;
 
-    const cart = orderItems.map((product) => ({
-      productId: product._id,
-      nameEn: product.nameEn,
-      nameAr: product.nameAr,
-      amount: product.amount,
-      image: product.image,
-      selectSize: product.selectSize,
-      selectToppings: product.selectToppings,
-      offer: product.offer,
-      offerNumber: product.offerNumber,
-    }));
+  const cart = orderItems.map((product) => ({
+    productId: product._id,
+    nameEn: product.nameEn,
+    nameAr: product.nameAr,
+    amount: product.amount,
+    image: product.image,
+    selectSize: product.selectSize,
+    selectToppings: product.selectToppings,
+    offer: product.offer,
+    offerNumber: product.offerNumber,
+  }));
 
-    const createOrder = await Order.create({
-      user: user,
-      shippingDitails,
-      orderItems: cart,
-      paymentMethod: paymentMethod,
-      totalPrice: totalPrice,
-    });
+  const createOrder = await Order.create({
+    user: user,
+    shippingDitails,
+    orderItems: cart,
+    paymentMethod: paymentMethod,
+    totalPrice: totalPrice,
+  });
 
-    res.status(201).json({
-      status: "success",
-      data: {
-        createOrder,
-      },
-    });
-  } catch (error) {
-    console.error("Error creating order:", error);
-    res.status(500).json({
-      status: "error",
-      message: "Internal Server Error",
-    });
-  }
+  res.status(201).json({
+    status: "success",
+    data: {
+      createOrder,
+    },
+  });
 });
 exports.updateOrder = asyncHandaler(async (req, res, next) => {
   const updatedOrder = await users.findByIdAndUpdate(req.params.id, req.body, {
