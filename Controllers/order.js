@@ -5,8 +5,10 @@ const features = require("../Utils/feature");
 const users = require("../Models/users");
 
 exports.getAllOrders = asyncHandaler(async (req, res, next) => {
-  const feature = new features(Order.find(), req.query)
-    .populate()
+  const feature = new features(
+    Order.find().populate({ path: "user", select: "nameAr nameEn -_id" }),
+    req.query
+  )
     .filter()
     .sort()
     .limitFields()

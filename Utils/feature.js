@@ -46,9 +46,9 @@ class Apifeatures {
     this.query = this.query.skip(skip).limit(limit);
     return this;
   }
-  populate() {
-    this.query.populate({ path: "users", select: "nameAr nameEn -_id" });
-  }
+  // populate() {
+  //   this.query.populate({ path: "user", select: "nameAr nameEn -_id" });
+  // }
 }
 
 module.exports = Apifeatures;
