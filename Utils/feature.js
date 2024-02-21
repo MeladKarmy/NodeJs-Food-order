@@ -47,7 +47,7 @@ class Apifeatures {
     return this;
   }
   populate() {
-    this.query.populate({ path: "user", select: "nameAr nameEn -_id" });
+    this.query.populate({ path: "users", select: "nameAr nameEn -_id" });
   }
 }
 
