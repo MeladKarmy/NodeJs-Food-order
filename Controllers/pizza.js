@@ -3,6 +3,7 @@ const Category = require("../Models/category");
 const ErrorHandling = require("../Utils/errorHandling");
 const asyncHandaler = require("../Utils/handelasync");
 const features = require("../Utils/feature");
+
 exports.getAllPizza = asyncHandaler(async (req, res, next) => {
   const feature = new features(
     Pizza.find().populate("category", "nameEn"),

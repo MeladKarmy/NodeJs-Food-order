@@ -6,6 +6,7 @@ const users = require("../Models/users");
 
 exports.getAllOrders = asyncHandaler(async (req, res, next) => {
   const feature = new features(Order.find(), req.query)
+    .populate()
     .filter()
     .sort()
     .limitFields()
