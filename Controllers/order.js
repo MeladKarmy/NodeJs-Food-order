@@ -20,7 +20,7 @@ exports.getAllOrders = asyncHandaler(async (req, res, next) => {
     status: "success",
     length: order.length,
     data: {
-      order,
+      pizza: order,
     },
   });
 });
@@ -35,7 +35,7 @@ exports.getOrder = asyncHandaler(async (req, res, next) => {
   res.status(200).json({
     status: "success",
     data: {
-      order,
+      pizza: order,
     },
   });
 });
@@ -68,7 +68,7 @@ exports.createOrder = asyncHandaler(async (req, res, next) => {
   res.status(201).json({
     status: "success",
     data: {
-      createOrder,
+      pizza: createOrder,
     },
   });
 });
@@ -86,7 +86,7 @@ exports.updateOrder = asyncHandaler(async (req, res, next) => {
   res.status(200).json({
     status: "success",
     data: {
-      updatedOrder,
+      pizza: updatedOrder,
     },
   });
 });

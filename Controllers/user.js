@@ -19,7 +19,7 @@ exports.getAllUsers = asyncHandaler(async (req, res, next) => {
     status: "success",
     length: user.length,
     data: {
-      user,
+      pizza: user,
     },
   });
 });
@@ -34,7 +34,7 @@ exports.getUser = asyncHandaler(async (req, res, next) => {
   res.status(200).json({
     status: "success",
     data: {
-      user,
+      pizza: user,
     },
   });
 });
@@ -53,7 +53,7 @@ exports.createUser = asyncHandaler(async (req, res, next) => {
   res.status(201).json({
     status: "success",
     data: {
-      user,
+      pizza: user,
     },
   });
 });
@@ -72,7 +72,7 @@ exports.updateUsers = asyncHandaler(async (req, res, next) => {
   res.status(200).json({
     status: "success",
     data: {
-      user: updatedUser,
+      pizza: updatedUser,
     },
   });
 });
